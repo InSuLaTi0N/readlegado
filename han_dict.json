@@ -1,7 +1,7 @@
 {
   "enabled": true,
   "name": "汉典",
-  "showRule": "@js:var jsoup = org.jsoup.Jsoup.parse(result)\njsoup.select(\"script\").remove()\njsoup.select(\"style\").remove()\njsoup.select(\"header\").remove()\njsoup.select(\"footer\").remove()\njsoup.select(\"nav\").remove()\njsoup.select(\".content\").html()",
+  "showRule": "@js:var jsoup = org.jsoup.Jsoup.parse(result)\njsoup.select(\"script\").remove()\njsoup.select(\"style\").remove()\njsoup.select(\"header\").remove()\njsoup.select(\"footer\").remove()\njsoup.select(\"nav\").remove()\njsoup.select(\".shiyi_content.res_c_center_content\").html()",
   "sortNumber": 1,
   "urlRule": "https://www.zdic.net/hans/{{key}}"
 }
