@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "name": "维基百科",
+  "showRule": "@js:var jsoup = org.jsoup.Jsoup.parse(result)\njsoup.select(\"script\").remove()\njsoup.select(\"style\").remove()\njsoup.select(\".mw-editsection\").remove()\njsoup.select(\"#mw-navigation\").remove()\njsoup.select(\"#footer\").remove()\njsoup.select(\"#mw-content-text\").html()",
+  "sortNumber": 2,
+  "urlRule": "https://zh.wikipedia.org/w/index.php?search={{key}}"
+}
