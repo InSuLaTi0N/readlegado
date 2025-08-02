@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "name": "萌娘百科",
+  "showRule": "@js:var doc = org.jsoup.Jsoup.parse(result)\ndoc.select(\"script, style, .navbox, .mw-editsection\").remove()\nvar content = doc.select(\".mw-parser-output\").first()\nif(content == null) content = doc.select(\"#mw-content-text\").first()\ncontent != null ? content.html() : \"未找到内容\"",
+  "sortNumber": 1,
+  "urlRule": "https://zh.moegirl.org.cn/{{key}}"
+}
