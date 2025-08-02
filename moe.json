@@ -1,7 +1,7 @@
 {
   "enabled": true,
-  "name": "萌娘百科(轻量API)",
-  "showRule": "@js:var obj = JSON.parse(result)\nvar pages = obj.query.pages\nvar pageId = Object.keys(pages)[0]\nif(pageId == \"-1\") return \"未找到词条\"\nreturn pages[pageId].extract || \"词条无内容\"",
+  "name": "萌娘百科(搜索版)",
+  "showRule": "@js:var doc = org.jsoup.Jsoup.parse(result)\nvar firstResult = doc.select(\".mw-search-result-heading a\").first()\nif(firstResult == null) return \"未找到搜索结果\"\nvar title = firstResult.text()\nvar snippet = doc.select(\".searchresult\").first()\nreturn \"<h3>\" + title + \"</h3>\" + (snippet != null ? snippet.html() : \"无摘要\")",
   "sortNumber": 1,
-  "urlRule": "https://zh.moegirl.org.cn/api.php?action=query&format=json&prop=extracts&exintro=true&explaintext=true&exsectionformat=plain&titles={{key}}"
+  "urlRule": "https://zh.moegirl.org.cn/index.php?search={{key}}"
 }
