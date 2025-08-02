@@ -1,7 +1,7 @@
 {
   "enabled": true,
   "name": "萌娘百科",
-  "showRule": "@js:var obj = JSON.parse(result)\nvar pages = obj.query.pages\nvar pageId = Object.keys(pages)[0]\nif(pageId == \"-1\") return \"未找到词条\"\nreturn pages[pageId].extract || \"词条无内容\"",
+  "showRule": "@js:var obj = JSON.parse(result); var pages = obj.query.pages; var pageId = Object.keys(pages)[0]; pageId == \"-1\" ? \"未找到词条\" : (pages[pageId].extract || \"词条无内容\")",
   "sortNumber": 1,
-  "urlRule": "https://zh.moegirl.org.cn/api.php?action=query&format=json&prop=extracts&exintro=true&explaintext=true&exsectionformat=plain&titles={{key}}"
+  "urlRule": "https://zh.moegirl.org.cn/api.php?action=query&format=json&prop=extracts&exintro=true&explaintext=true&titles={{key}}"
 }
