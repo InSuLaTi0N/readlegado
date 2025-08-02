@@ -1,7 +1,11 @@
+
 {
   "enabled": true,
-  "name": "萌娘百科",
-  "showRule": "@js:var jsoup = org.jsoup.Jsoup.parse(result)\njsoup.select(\"script\").remove()\njsoup.select(\"style\").remove()\njsoup.select(\".mw-editsection\").remove()\njsoup.select(\"#mw-navigation\").remove()\njsoup.select(\"#footer\").remove()\njsoup.select(\"#mw-content-text\").html()",
-  "sortNumber": 1,
-  "urlRule": "https://zh.moegirl.org.cn/index.php?search={{key}}"
+  "name": "萌娘百科（API 版）",
+  "urlRule": "https://zh.moegirl.org.cn/api.php?action=query&format=json&prop=extracts&exintro=&titles={{key}}",
+  "showRule": "@js:\n" +
+    "var obj = JSON.parse(result);\n" +
+    "var pages = obj.query.pages;\n" +
+    "var firstId = Object.keys(pages)[0];\n" +
+    "pages[firstId].extract || \"无条目或摘要\";"
 }
