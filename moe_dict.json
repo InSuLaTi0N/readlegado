@@ -1,11 +1,7 @@
-
 {
   "enabled": true,
   "name": "萌娘百科",
-  "urlRule": "https://zh.moegirl.org.cn/api.php?action=query&format=json&prop=extracts&exintro=&titles={{key}}",
-  "showRule": "@js:\n" +
-    "var obj = JSON.parse(result);\n" +
-    "var pages = obj.query.pages;\n" +
-    "var firstId = Object.keys(pages)[0];\n" +
-    "pages[firstId].extract || \"无条目或摘要\";"
+  "showRule": "@js:var jsoup = org.jsoup.Jsoup.parse(result)\njsoup.select(\"script, style, link, .mw-editsection, #mw-navigation, #footer, .navbox, .mw-indicators\").remove()\nvar content = jsoup.select(\"#mw-content-text\").first()\nif(content == null) content = jsoup.select(\".mw-parser-output\").first()\nif(content == null) content = jsoup.select(\"#content\").first()\ncontent != null ? content.html() : \"未找到内容\"",
+  "sortNumber": 1,
+  "urlRule": "https://zh.moegirl.org.cn/{{key}}"
 }
